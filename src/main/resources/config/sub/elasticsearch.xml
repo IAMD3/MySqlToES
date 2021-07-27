@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+    <bean id="esMeta" class="go.entity.ESMeta">
+        <property name="address" value="{ES地址}"/>
+        <property name="connectTimeOut" value="99999999"/>
+        <property name="socketTimeout" value="99999999"/>
+        <property name="user" value="{账号}"/>
+        <property name="pwd" value="{密码}"/>
+
+    </bean>
+
+
+    <bean class="go.elasticsearch.ESClient"
+          init-method="init">
+        <property name="esMeta" ref="esMeta"/>
+    </bean>
+</beans>
+
+

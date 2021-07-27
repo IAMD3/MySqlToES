@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="taskMeta" class="go.entity.TaskMeta">
+        <property name="name" value="我真帅"/>
+        <property name="index" value="{索引名}"/>
+        <property name="sql" value="{select * from table}"/>
+        <property name="size" value="1000"/>
+        <property name="createIndex" value="true"/>
+        <property name="spi" value="false"/>
+    </bean>
+
+
+</beans>

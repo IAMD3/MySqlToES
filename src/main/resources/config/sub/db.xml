@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		init-method="init" destroy-method="close">
+		<!-- 基本属性 url、user、password  -->
+		<property name="url" value="jdbc:mysql://{你的地址}" />
+		<property name="username" value="{用户名}" />
+		<property name="password" value="{密码}" />
+		<property name="filters" value="stat" />
+	</bean>
+
+
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+
+	<bean id="xConnector" class="go.mysql.XConnector">
+		<property name="template" ref="jdbcTemplate"/>
+	</bean>
+</beans>
